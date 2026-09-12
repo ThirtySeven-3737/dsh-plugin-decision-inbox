@@ -13,12 +13,27 @@ for destructive actions.
 
 ## The idea
 
-| Without a non-blocking decision inbox | With `dsh-decision-inbox` |
-| --- | --- |
-| The agent asks a question, then the whole turn often goes idle while waiting for the user. | The agent leaves only the decision-dependent branch pending, then keeps working on unrelated or safe preparation tasks. |
-| <img src="docs/comic/04-before-blocked-lazy.png" alt="Without the plugin, the agent waits and leaves work undone." width="420"> | <img src="docs/comic/08-after-keeps-working.png" alt="With the plugin, the agent keeps working while the decision remains pending." width="420"> |
+Without a non-blocking decision inbox, the agent asks a question, then the
+whole turn often goes idle while waiting for the user.
 
-Full comic storyboard: [`docs/comic`](docs/comic).
+### Before
+
+| 1. Task received | 2. Important choice found |
+| --- | --- |
+| <img src="docs/comic/01-before-task-received.png" alt="The user gives DeepSeek a task." width="360"> | <img src="docs/comic/02-before-important-choice.png" alt="DeepSeek finds an important decision point." width="360"> |
+| 3. Waiting for the user | 4. Independent work is left undone |
+| <img src="docs/comic/03-before-choice-popup-waiting.png" alt="DeepSeek asks the user to choose A, B, or C." width="360"> | <img src="docs/comic/04-before-blocked-lazy.png" alt="DeepSeek waits and leaves other work undone." width="360"> |
+
+With `dsh-decision-inbox`, the agent leaves only the decision-dependent branch
+pending, then keeps working on unrelated or safe preparation tasks.
+
+### After
+
+| 1. Task received | 2. Important choice found |
+| --- | --- |
+| <img src="docs/comic/05-after-task-received.png" alt="The user gives DeepSeek a task after installing the plugin." width="360"> | <img src="docs/comic/06-after-important-choice.png" alt="DeepSeek finds an important decision point after installing the plugin." width="360"> |
+| 3. Decision card stays pending | 4. Independent work continues |
+| <img src="docs/comic/07-after-choice-popup-nonblocking.png" alt="A decision card stays pending while the user is away." width="360"> | <img src="docs/comic/08-after-keeps-working.png" alt="DeepSeek keeps working while the decision remains pending." width="360"> |
 
 ## Flow
 
