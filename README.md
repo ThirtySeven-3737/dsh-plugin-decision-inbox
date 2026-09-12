@@ -13,6 +13,8 @@ for destructive actions.
 
 ## The idea
 
+如你们所见，这是一个能让deepseek-harness工作中在弹出选项窗口时，还能继续进行其他任务的插件（而不是一直卡在选项窗口不动，睡一觉醒来发现它卡在选项窗口后，别的任务也不进行了）。不过现在大家用Agent应该都是“你决定就行”这样的吧（自动审批很好用hhh，其实我大部分时间也是这样），是不是已经很久没看到选项窗口的弹出了！但我相信不是所有使用者都希望Agent自动拍板（比如高安全需求的开发场景？），尽管需求窗口确实很小，我还是做了这个插件。
+
 Without a non-blocking decision inbox, the agent asks a question, then the
 whole turn often goes idle while waiting for the user.
 
