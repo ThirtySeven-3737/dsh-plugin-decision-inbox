@@ -424,69 +424,52 @@ Config example (extend the plugin entry in `cordis.patch.yml`):
 ## Quick start: install from GitHub source
 
 These steps assume you already have a working DeepSeek Harness checkout.
-Replace paths with your local locations.
 
-### 1. Clone and build this plugin
+### 1. Add the plugin to a DSH profile
 
-```powershell
-git clone https://github.com/<owner>/dsh-decision-inbox.git
-cd dsh-decision-inbox
-pnpm install
-pnpm build
-```
-
-For a full local verification run:
+If the DSH CLI is available on your `PATH`:
 
 ```powershell
-pnpm check
-pnpm test
+dsh plugin --profile web add github:ThirtySeven-3737/dsh-plugin-decision-inbox
 ```
 
-The normal automated tests do not need a model API key. The optional
-`pnpm eval:autonomy` command uses a real model API boundary and reads
-`DEEPSEEK_API_KEY` or a local `env.txt`.
-
-### 2. Add the plugin to a DSH profile
-
-From your DeepSeek Harness checkout:
+If you run DSH from a source checkout:
 
 ```powershell
 cd D:\deepseek-harness
-pnpm dsh plugin --profile web add file:E:/path/to/dsh-decision-inbox
+pnpm dsh plugin --profile web add github:ThirtySeven-3737/dsh-plugin-decision-inbox
 ```
 
-You can also run the DSH CLI directly if it is on your `PATH`:
-
-```powershell
-dsh plugin --profile web add file:E:/path/to/dsh-decision-inbox
-```
+Because this repository is installed from GitHub source, pnpm may ask you to
+approve the package build step. Allow the build for this plugin. The
+`prepare` script builds the TypeScript sources into the `lib/` files that DSH
+loads.
 
 The included `cordis.patch.yml` inserts the host plugin as `decision-inbox`
 and stores durable state under `$DSH_HOME/storages/decision-inbox.json`.
 
-### 3. Restart DSH Web
+### 2. Restart DSH Web
 
 If DSH Web is already running, stop it first with `Ctrl+C`, then start it
-again from the DeepSeek Harness checkout:
+again:
 
 ```powershell
 cd D:\deepseek-harness
 pnpm dsh web
 ```
 
-Open:
-
-```text
-http://127.0.0.1:3080
-```
+Open the local URL printed by `pnpm dsh web` and start a new session. In local
+development this is often `http://127.0.0.1:3080`, but the exact port belongs
+to your DSH Web setup, not to this plugin.
 
 Use a new session after installation or upgrade, so the updated system prompt,
 tools, and Web card are loaded.
 
-### 4. Try it
+### 3. Try it
 
-Send a natural task that contains a consequential user-owned choice but still
-has useful work the agent can do before the answer. For example:
+No slash command or special prompt is required. Send a natural task that
+contains a consequential user-owned choice but still has useful work the agent
+can do before the answer. For example:
 
 ```text
 I want to add a remote sync capability for pending decisions in this plugin,
@@ -503,6 +486,35 @@ Expected behavior:
 4. After you click an option or provide a free-text answer, the answer is
    steered back into the owning session and the agent continues the dependent
    work.
+
+### Local development install
+
+When editing this plugin locally, clone and build the repository first:
+
+```powershell
+git clone https://github.com/ThirtySeven-3737/dsh-plugin-decision-inbox.git
+cd dsh-plugin-decision-inbox
+pnpm install
+pnpm build
+```
+
+Then add the local working copy to DSH:
+
+```powershell
+cd D:\deepseek-harness
+pnpm dsh plugin --profile web add file:E:/path/to/dsh-plugin-decision-inbox
+```
+
+For a full local verification run:
+
+```powershell
+pnpm check
+pnpm test
+```
+
+The normal automated tests do not need a model API key. The optional
+`pnpm eval:autonomy` command uses a real model API boundary and reads
+`DEEPSEEK_API_KEY` or a local `env.txt`.
 
 ### Troubleshooting
 

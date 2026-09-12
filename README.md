@@ -75,28 +75,35 @@ flowchart TD
 
 ## Quick start
 
-Clone and build the plugin:
+Install the plugin into your DSH `web` profile:
 
 ```bash
-git clone https://github.com/ThirtySeven-3737/dsh-plugin-decision-inbox.git
-cd dsh-plugin-decision-inbox
-pnpm install
-pnpm build
+dsh plugin --profile web add github:ThirtySeven-3737/dsh-plugin-decision-inbox
 ```
 
-Add it to a DeepSeek Harness profile:
+If you run DSH from a source checkout instead of a globally available `dsh`
+command, use the repo's CLI wrapper:
 
 ```bash
 cd /path/to/deepseek-harness
-pnpm dsh plugin --profile web add file:/path/to/dsh-plugin-decision-inbox
+pnpm dsh plugin --profile web add github:ThirtySeven-3737/dsh-plugin-decision-inbox
+```
+
+Because this repository is installed from GitHub source, pnpm may ask you to
+approve the package build step. Allow the build for this plugin, then restart
+DSH Web:
+
+```bash
 pnpm dsh web
 ```
 
-Then open DSH Web and start a new session:
+Then open the local URL printed by `pnpm dsh web` and start a new session.
+In local development this is often `http://127.0.0.1:3080`, but the exact port
+belongs to your DSH Web setup, not to this plugin.
 
-```text
-http://127.0.0.1:3080
-```
+No slash command or special prompt is required. When the agent reaches a
+consequential choice and can still do useful independent work, it should create
+a non-blocking decision and DSH Web will show the decision card.
 
 Try a task with a consequential user-owned choice, for example:
 
@@ -115,6 +122,24 @@ Expected behavior:
    and the agent finishes the dependent work.
 
 ## Development
+
+Clone and build locally:
+
+```bash
+git clone https://github.com/ThirtySeven-3737/dsh-plugin-decision-inbox.git
+cd dsh-plugin-decision-inbox
+pnpm install
+pnpm build
+```
+
+Install a local working copy into DSH while developing:
+
+```bash
+cd /path/to/deepseek-harness
+pnpm dsh plugin --profile web add file:/path/to/dsh-plugin-decision-inbox
+```
+
+Run checks:
 
 ```bash
 pnpm check
