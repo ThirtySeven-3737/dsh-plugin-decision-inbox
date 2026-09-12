@@ -16,6 +16,5 @@ Use this before publishing to GitHub or npm.
 
 - [ ] Run `pnpm build`.
 - [ ] Run `pnpm pack --dry-run` or inspect `pnpm pack` output.
-- [ ] Confirm the tarball contains only `lib`, `cordis.patch.yml`, `README.md`, `LICENSE`, and package metadata.
+- [ ] Confirm the tarball contains only `lib`, `cordis.patch.yml`, `README.md`, `CHANGELOG.md`, `LICENSE`, and package metadata.
 - [ ] Re-test installing the packed tarball into a local DSH `web` profile.
-

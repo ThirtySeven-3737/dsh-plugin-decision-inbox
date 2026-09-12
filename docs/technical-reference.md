@@ -441,9 +441,10 @@ pnpm dsh plugin --profile web add github:ThirtySeven-3737/dsh-plugin-decision-in
 ```
 
 Because this repository is installed from GitHub source, pnpm may ask you to
-approve the package build step. Allow the build for this plugin. The
-`prepare` script builds the TypeScript sources into the `lib/` files that DSH
-loads.
+approve the package build step. If the first install fails with an
+`allowBuilds` hint, add the printed key for this package to that profile's
+`pnpm-workspace.yaml`, then run the `add` command again. The `prepare` script
+builds the TypeScript sources into the `lib/` files that DSH loads.
 
 The included `cordis.patch.yml` inserts the host plugin as `decision-inbox`
 and stores durable state under `$DSH_HOME/storages/decision-inbox.json`.
@@ -532,11 +533,11 @@ The normal automated tests do not need a model API key. The optional
 For testing the exact package contents before publishing:
 
 ```powershell
-cd E:\path\to\dsh-decision-inbox
+cd E:\path\to\dsh-plugin-decision-inbox
 pnpm pack
 
 cd D:\deepseek-harness
-pnpm dsh plugin --profile web add file:E:/path/to/dsh-decision-inbox/dsh-decision-inbox-0.5.0.tgz
+pnpm dsh plugin --profile web add file:E:/path/to/dsh-plugin-decision-inbox/dsh-decision-inbox-0.5.0.tgz
 pnpm dsh web
 ```
 

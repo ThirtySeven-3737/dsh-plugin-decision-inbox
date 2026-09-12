@@ -90,8 +90,10 @@ pnpm dsh plugin --profile web add github:ThirtySeven-3737/dsh-plugin-decision-in
 ```
 
 Because this repository is installed from GitHub source, pnpm may ask you to
-approve the package build step. Allow the build for this plugin, then restart
-DSH Web:
+approve the package build step. If the first install fails with an
+`allowBuilds` hint, add the printed key for this package to that profile's
+`pnpm-workspace.yaml`, then run the `add` command again. After installation,
+restart DSH Web:
 
 ```bash
 pnpm dsh web
@@ -153,6 +155,7 @@ evaluation can read `DEEPSEEK_API_KEY` or a local `env.txt`.
 ## More details
 
 - Full technical reference: [`docs/technical-reference.md`](docs/technical-reference.md)
+- Real-model test report: [`docs/reports/real-model-test-report.md`](docs/reports/real-model-test-report.md)
 - Release notes: [`CHANGELOG.md`](CHANGELOG.md)
 - Contributing guide: [`CONTRIBUTING.md`](CONTRIBUTING.md)
 - Security policy: [`SECURITY.md`](SECURITY.md)
