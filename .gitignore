@@ -1,0 +1,14 @@
+node_modules/
+lib/
+coverage/
+dist/
+*.tgz
+.env
+.env.*
+env.txt
+*.log
+.DS_Store
+.test-dsh-home/
+tests/e2e-workspace/
+tests/manual-demo-*/
+tests/manual-live-steering-*/

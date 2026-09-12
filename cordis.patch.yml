@@ -1,0 +1,5 @@
+- insert:
+    - id: decision-inbox
+      name: dsh-decision-inbox
+      config:
+        stateFile: !!js dshHomePath('storages', 'decision-inbox.json')

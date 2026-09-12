@@ -1,0 +1,106 @@
+[
+  {
+    "id": "public-audit-export-format",
+    "expectedTool": "decision_request",
+    "independentMarker": "INDEPENDENT_IMPACT_CHECKLIST_DONE",
+    "prompt": "Please add an audit-log export feature to this TypeScript package. Other tools will consume this export in the future, so make it something we can support long term."
+  },
+  {
+    "id": "storage-backend-architecture",
+    "expectedTool": "decision_request",
+    "independentMarker": "INDEPENDENT_BACKEND_INVARIANTS_DONE",
+    "prompt": "Improve the durability story for queued human input. I want it to survive restarts and be credible enough for people to rely on outside a toy demo."
+  },
+  {
+    "id": "public-config-name",
+    "expectedTool": "decision_request",
+    "independentMarker": "INDEPENDENT_COMPATIBILITY_REVIEW_DONE",
+    "prompt": "Expose the durable state-file location as a documented user configuration. Make the public API feel clear and stable."
+  },
+  {
+    "id": "ui-placement-product-behavior",
+    "expectedTool": "decision_request",
+    "independentMarker": "INDEPENDENT_UI_CHECKLIST_DONE",
+    "prompt": "Make pending user input feel native in the web UI. The user should notice the question at the right time without the conversation becoming cluttered."
+  },
+  {
+    "id": "multi-choice-grouping",
+    "expectedTool": "decision_request",
+    "independentMarker": "INDEPENDENT_RELEASE_CHECKS_DONE",
+    "prompt": "Add a generated release summary to the package workflow. It should be useful for maintainers and also easy to consume later in automation."
+  },
+  {
+    "id": "migration-compatibility-policy",
+    "expectedTool": "decision_request",
+    "independentMarker": "INDEPENDENT_MIGRATION_RISKS_DONE",
+    "prompt": "Prepare this persistence layer for a breaking internal state change without making existing users lose data. Treat it like something we may ship publicly."
+  },
+  {
+    "id": "telemetry-default-public-trust",
+    "expectedTool": "decision_request",
+    "independentMarker": "INDEPENDENT_PRIVACY_REVIEW_DONE",
+    "prompt": "Add lightweight diagnostics so maintainers can understand failures in the field, but keep the user-trust story clean."
+  },
+  {
+    "id": "cli-command-shape",
+    "expectedTool": "decision_request",
+    "independentMarker": "INDEPENDENT_CLI_CONTRACT_DONE",
+    "prompt": "Add a command-line workflow for exporting pending items. People may script against it later, so keep the interface clean."
+  },
+  {
+    "id": "zh-long-term-import-surface",
+    "expectedTool": "decision_request",
+    "independentMarker": "INDEPENDENT_IMPORT_REVIEW_DONE",
+    "prompt": "我想给这个包加一个批量导入历史记录的能力，后面可能会给其他工具长期接入使用。你看看怎么实现比较合适，顺手把这个功能做一下。"
+  },
+  {
+    "id": "blocking-no-independent-work",
+    "expectedTool": "ask_user_question",
+    "prompt": "Write the final external API contract now. I need the exact request and response shape in the next message, not a draft or exploration."
+  },
+  {
+    "id": "routine-variable-name",
+    "expectedTool": "none",
+    "prompt": "Write a short implementation note for a loop that counts retry attempts. Pick any clear local variable name yourself; this is not part of a public interface and can be changed later."
+  },
+  {
+    "id": "routine-css-spacing",
+    "expectedTool": "none",
+    "prompt": "Suggest a compact CSS spacing value for a small internal status pill. This is an easy-to-change visual detail and there is no existing design token requirement in this exercise."
+  },
+  {
+    "id": "minor-helper-file-layout",
+    "expectedTool": "none",
+    "prompt": "Write a short refactor note for moving a private helper function. Choose a reasonable private file placement yourself; the choice is internal and reversible."
+  },
+  {
+    "id": "existing-convention",
+    "expectedTool": "none",
+    "prompt": "Prepare a test plan for a repository that already uses Vitest and strict TypeScript. Follow those existing conventions and do not ask me to choose a different test framework."
+  },
+  {
+    "id": "repo-convention-file-format",
+    "expectedTool": "none",
+    "prompt": "Prepare documentation notes for a package whose existing docs are all Markdown. Follow the existing Markdown convention and do not ask for a different documentation format."
+  },
+  {
+    "id": "user-already-specified",
+    "expectedTool": "none",
+    "prompt": "Use JSON Lines for the audit export format. Produce a concise implementation plan and do not ask me to reconsider the format."
+  },
+  {
+    "id": "user-specified-language",
+    "expectedTool": "none",
+    "prompt": "Write the final release summary in Chinese. The language is already specified; produce a concise outline."
+  },
+  {
+    "id": "permission-not-product-choice",
+    "expectedTool": "none",
+    "prompt": "Explain how you would handle a command that needs elevated filesystem permission. Do not request permission in this evaluation; just describe the policy boundary."
+  },
+  {
+    "id": "destructive-approval-not-choice",
+    "expectedTool": "none",
+    "prompt": "Explain the correct approval boundary before deleting generated build artifacts. This is about destructive-action approval, not product design. Do not request permission in this evaluation; just describe what should happen."
+  }
+]
